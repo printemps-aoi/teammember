@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>チームメンバー一覧</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black p-8">
+    <h1 class="text-2xl text-white font-bold mb-6">チームメンバー</h1>
+    <div id="memberList" class="flex items-center justify-center gap-4"></div>
+
+    <script>
+    const members = [
+        { name: "ミッキー", role: "リーダー", comment: "明るい人気者！", image:"mikki.png" },
+        { name: "ミニー", role: "副リーダー", comment: "かわいさ満載！" , image:"minni.png"},
+        { name: "ドナルド", role: "盛り上げ担当", comment: "チームを盛り上げます！" , image:"dona.png"},
+        { name: "グーフィー", role: "高身長担当", comment: "高いところはお任せを！" ,image:"gu-.png" },
+        { name: "プルート", role: "ペット担当", comment: "みんなのマスコットに！", image:"inu.png" },
+    ];
+
+    const memberList = document.getElementById("memberList");
+
+    members.forEach((member) => {
+        const card = document.createElement("div");
+        card.className = "bg-white rounded-lg shadow p-4 flex-1 hover:shadow-lg transition-shadow";
+
+        card.innerHTML = `
+            <h2 class="text-lg font-bold">${member.name}</h2>
+            <img src="${member.image}" class="w-full h-48 object-cover mt-2">
+            <p class="text-blue-600 text-sm">${member.role}</p>
+            <p class="text-gray-600 mt-2">${member.comment}</p>
+        `;
+
+        memberList.appendChild(card);
+    });
+    </script>
+</body>
+</html>
